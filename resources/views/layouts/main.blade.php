@@ -18,13 +18,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('posts/create') ? 'active' : '' }}" href="{{route('posts.create')}}">Create</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::is('posts/update') ? 'active' : '' }}" href="{{route('posts.update')}}">Update</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::is('posts/delete') ? 'active' : '' }}" href="{{route('posts.delete')}}">Delete</a>
+                            <a class="nav-link {{ Request::is('posts.create') ? 'active' : '' }}" href="{{route('posts.create')}}">Create</a>
                         </li>
                     </ul>
                 </div>
