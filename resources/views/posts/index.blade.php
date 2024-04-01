@@ -11,10 +11,28 @@
                             </a>
                         </h2>
                         <p>{{$post->content}}</p>
+
+                        <div>
+                            @if(isset($post->category))
+                                <p>Category:
+                                    <span class="bg-info py-1 px-2 rounded-2">
+                                        {{$post->category->title}}
+                                    </span>
+                                </p>
+                            @endif
+
+                            @if($post->tags->isNotEmpty())
+                                <p>Tags:
+                                    @foreach($post->tags as $tag)
+                                        <span class="bg-success py-1 px-2 rounded-2">{{$tag->title}}</span>
+                                    @endforeach
+                                </p>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
         @endforeach
-            </div>
-        <br>
+    </div>
+    <br>
 @endsection
