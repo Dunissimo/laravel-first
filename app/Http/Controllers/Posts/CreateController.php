@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\posts;
+namespace App\Http\Controllers\Posts;
 
-use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Tag;
 
-class CreateController extends Controller
+class CreateController extends BaseController
 {
     public function __invoke()
     {

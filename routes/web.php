@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\posts\CreateController;
-use App\Http\Controllers\posts\DeleteController;
-use App\Http\Controllers\posts\EditController;
-use App\Http\Controllers\posts\IndexController;
-use App\Http\Controllers\posts\ShowController;
-use App\Http\Controllers\posts\StoreController;
-use App\Http\Controllers\posts\UpdateController;
+use App\Http\Controllers\Posts\CreateController;
+use App\Http\Controllers\Posts\DeleteController;
+use App\Http\Controllers\Posts\EditController;
+use App\Http\Controllers\Posts\IndexController;
+use App\Http\Controllers\Posts\ShowController;
+use App\Http\Controllers\Posts\StoreController;
+use App\Http\Controllers\Posts\UpdateController;
 use Illuminate\Support\Facades\Route;
 
 /*
