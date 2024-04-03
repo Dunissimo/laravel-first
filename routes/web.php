@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Posts\IndexController as AdminPostsIndexController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Posts\CreateController;
 use App\Http\Controllers\Posts\DeleteController;
 use App\Http\Controllers\Posts\EditController;
@@ -20,11 +21,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index']);
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('admin')->group(function () {
     //Route::get('/', )->name('admin.index');
     Route::prefix('posts')->group(function () {
         Route::get('/', AdminPostsIndexController::class)->name('admin.posts.index');
@@ -41,3 +40,7 @@ Route::prefix('posts')->group(function () {
     Route::patch('/{post}', UpdateController::class)->name('posts.update');
     Route::delete('/{post}', DeleteController::class)->name('posts.delete');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

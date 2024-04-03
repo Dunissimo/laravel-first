@@ -20,6 +20,12 @@
                         <li class="nav-item">
                             <a class="nav-link {{ Request::is('posts.create') ? 'active' : '' }}" href="{{route('posts.create')}}">Create</a>
                         </li>
+
+                        @can('view', auth()->user())
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::is('admin.posts.index') ? 'active' : '' }}" href="{{route('admin.posts.index')}}">Admin</a>
+                        </li>
+                        @endcan
                     </ul>
                 </div>
             </div>
