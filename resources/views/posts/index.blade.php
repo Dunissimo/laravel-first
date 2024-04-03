@@ -38,5 +38,4 @@
             {{$posts->withQueryString()->links()}}
         </div>
     </div>
-    <br>
 @endsection

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Posts\IndexController as AdminPostsIndexController;
 use App\Http\Controllers\Posts\CreateController;
 use App\Http\Controllers\Posts\DeleteController;
 use App\Http\Controllers\Posts\EditController;
@@ -23,12 +24,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::prefix('admin')->group(function () {
+    //Route::get('/', )->name('admin.index');
+    Route::prefix('posts')->group(function () {
+        Route::get('/', AdminPostsIndexController::class)->name('admin.posts.index');
+    });
+});
 
-Route::get('/posts', IndexController::class)->name('posts.index');
+Route::prefix('posts')->group(function () {
+    Route::get('/', IndexController::class)->name('posts.index');
 
-Route::get('/posts/create', CreateController::class)->name('posts.create');
-Route::post('/posts', StoreController::class)->name('posts.store');
-Route::get('/posts/{post}', ShowController::class)->name('posts.show');
-Route::get('/posts/{post}/edit', EditController::class)->name('posts.edit');
-Route::patch('/posts/{post}', UpdateController::class)->name('posts.update');
-Route::delete('/posts/{post}', DeleteController::class)->name('posts.delete');
+    Route::get('//create', CreateController::class)->name('posts.create');
+    Route::post('/', StoreController::class)->name('posts.store');
+    Route::get('/{post}', ShowController::class)->name('posts.show');
+    Route::get('/{post}/edit', EditController::class)->name('posts.edit');
+    Route::patch('/{post}', UpdateController::class)->name('posts.update');
+    Route::delete('/{post}', DeleteController::class)->name('posts.delete');
+});
